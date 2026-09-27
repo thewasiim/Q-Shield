@@ -229,26 +229,26 @@ export default function App() {
                     </div>
 
                     {/* Stats Strip */}
-                    <div className="stat-row" style={{ marginTop: 40, paddingTop: 28, borderTop: '1px solid var(--border-light)', gap: 'clamp(16px, 3vw, 36px)' }}>
+                    <div className="stat-row" style={{ marginTop: 40, paddingTop: 28, borderTop: '1px solid var(--border-light)' }}>
                       <div className="metric">
-                        <div style={{ fontSize: 'clamp(20px, 3vw, 24px)', fontWeight: 800, color: 'var(--text-primary)' }}>
+                        <div style={{ fontSize: 'clamp(18px, 3vw, 24px)', fontWeight: 800, color: 'var(--text-primary)' }}>
                           {summary?.total_verifications ?? 127}
                         </div>
-                        <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>Signatures verified</div>
+                        <div style={{ fontSize: 'clamp(11px, 2vw, 12px)', color: 'var(--text-muted)', lineHeight: 1.25 }}>Signatures verified</div>
                       </div>
                       <div className="sep" />
                       <div className="metric">
-                        <div style={{ fontSize: 'clamp(20px, 3vw, 24px)', fontWeight: 800, color: 'var(--success)' }}>
+                        <div style={{ fontSize: 'clamp(18px, 3vw, 24px)', fontWeight: 800, color: 'var(--success)' }}>
                           {summary?.accepted ?? 84}
                         </div>
-                        <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>Accepted legitimate</div>
+                        <div style={{ fontSize: 'clamp(11px, 2vw, 12px)', color: 'var(--text-muted)', lineHeight: 1.25 }}>Accepted legitimate</div>
                       </div>
                       <div className="sep" />
                       <div className="metric">
-                        <div style={{ fontSize: 'clamp(20px, 3vw, 24px)', fontWeight: 800, color: 'var(--danger)' }}>
+                        <div style={{ fontSize: 'clamp(18px, 3vw, 24px)', fontWeight: 800, color: 'var(--danger)' }}>
                           {((summary?.rejected ?? 19) + (summary?.suspicious ?? 24))}
                         </div>
-                        <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>Threats intercepted</div>
+                        <div style={{ fontSize: 'clamp(11px, 2vw, 12px)', color: 'var(--text-muted)', lineHeight: 1.25 }}>Threats intercepted</div>
                       </div>
                     </div>
                   </div>

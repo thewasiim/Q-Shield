@@ -1198,17 +1198,19 @@ a { text-decoration: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 24px;
+  flex-wrap: nowrap;
+  gap: 16px;
+  width: 100%;
 }
 .stat-row .metric {
   flex: 1;
-  min-width: 140px;
+  min-width: 0;
 }
 .stat-row .sep {
   width: 1px;
-  height: 40px;
+  height: 36px;
   background: var(--border-light);
+  flex-shrink: 0;
 }
 
 .architecture-grid {
@@ -1289,12 +1291,22 @@ a { text-decoration: none; }
     padding: 28px 20px;
   }
   .stat-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
   }
   .stat-row .sep {
-    display: none;
+    display: block;
+    width: 1px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+  .stat-row .metric {
+    min-width: 0;
+    flex: 1;
   }
   .card {
     padding: 20px 16px !important;
@@ -1315,8 +1327,30 @@ a { text-decoration: none; }
   .container { padding: 0 16px; }
   .tab-content-area { padding: 0 16px 40px; }
   .stat-row {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .stat-row .sep {
+    display: block;
+    width: 1px;
+    height: 28px;
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+  .stat-row .metric {
+    min-width: 0;
+    flex: 1;
+  }
+  .stat-row .metric > div:first-child {
+    font-size: 18px !important;
+  }
+  .stat-row .metric > div:last-child {
+    font-size: 10px !important;
+    line-height: 1.25;
   }
   .t-hero {
     font-size: 38px;

@@ -84,13 +84,17 @@
 /* Stat row */
 .stat-row {
   display: flex;
-  align-items: flex-start;
-  gap: 48px;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(10px, 2.5vw, 48px);
+  flex-wrap: nowrap;
+  width: 100%;
 }
 
 @media (max-width: 600px) {
-  .stat-row { gap: 28px; }
+  .stat-row { 
+    gap: 8px; 
+    flex-wrap: nowrap; 
+  }
 }
 
 /* Thin separator */

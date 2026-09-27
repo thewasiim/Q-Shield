@@ -40,24 +40,27 @@ export default function AuditLedgerPreview({ ledger = [], onNavigateToLedger, on
 
           {/* Minimal Top Summary Stats Strip */}
           <div style={{
-            display: 'flex',
+            display: 'inline-flex',
             alignItems: 'center',
-            gap: 12,
-            padding: '10px 20px',
+            gap: 'clamp(4px, 1.5vw, 10px)',
+            padding: '8px clamp(12px, 2.5vw, 20px)',
             background: 'var(--c-white)',
             border: '1px solid var(--border-light)',
             borderRadius: 'var(--radius-pill)',
-            fontSize: 12.5,
+            fontSize: 'clamp(10.5px, 2.4vw, 12.5px)',
             fontWeight: 600,
             boxShadow: 'var(--shadow-xs)',
-            flexWrap: 'wrap',
+            flexWrap: 'nowrap',
+            whiteSpace: 'nowrap',
+            maxWidth: '100%',
+            overflowX: 'auto',
           }}>
             <span style={{ color: 'var(--text-primary)' }}>{totalCount} events</span>
-            <span style={{ color: 'var(--border-light)' }}>·</span>
+            <span style={{ color: 'var(--border-light)', opacity: 0.8 }}>·</span>
             <span style={{ color: 'var(--success)' }}>{acceptedCount} accepted</span>
-            <span style={{ color: 'var(--border-light)' }}>·</span>
+            <span style={{ color: 'var(--border-light)', opacity: 0.8 }}>·</span>
             <span style={{ color: 'var(--warning)' }}>{suspiciousCount} suspicious</span>
-            <span style={{ color: 'var(--border-light)' }}>·</span>
+            <span style={{ color: 'var(--border-light)', opacity: 0.8 }}>·</span>
             <span style={{ color: 'var(--danger)' }}>{rejectedCount} rejected</span>
           </div>
         </div>
