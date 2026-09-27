@@ -120,26 +120,35 @@ export default function ArchitecturePipeline() {
             {STAGES.map((stage, idx) => {
               const isActive = activeStageIdx === idx;
               return (
-                <div
+                <button
+                  type="button"
                   key={stage.id}
                   onClick={() => setActiveStageIdx(idx)}
                   style={{
                     position: 'relative',
+                    width: '100%',
+                    textAlign: 'left',
                     padding: 'clamp(12px, 2.5vw, 16px) clamp(12px, 2.5vw, 20px)',
                     marginBottom: 8,
                     borderRadius: 'var(--radius-md)',
                     cursor: 'pointer',
                     background: isActive ? 'rgba(255, 255, 255, 0.08)' : 'transparent',
-                    border: isActive ? `1px solid ${stage.accent}40` : '1px solid transparent',
-                    transition: 'all 0.2s ease',
+                    border: isActive ? `1.5px solid ${stage.accent}` : '1.5px solid transparent',
+                    transition: 'all 0.15s ease',
+                    color: 'inherit',
+                    fontFamily: 'inherit',
+                    outline: 'none',
+                    display: 'block',
+                    touchAction: 'manipulation',
+                    WebkitTapHighlightColor: 'rgba(255, 255, 255, 0.1)',
                   }}
-                  onMouseEnter={() => !isActive && setActiveStageIdx(idx)}
                 >
                   {/* Active dot on vertical line */}
                   <div style={{
                     position: 'absolute',
                     left: -17,
-                    top: 24,
+                    top: '50%',
+                    transform: 'translateY(-50%)',
                     width: 10,
                     height: 10,
                     borderRadius: '50%',
@@ -177,7 +186,7 @@ export default function ArchitecturePipeline() {
                       {stage.subtitle}
                     </span>
                   </div>
-                </div>
+                </button>
               );
             })}
           </div>
@@ -199,13 +208,53 @@ export default function ArchitecturePipeline() {
               }}>
                 {activeStage.badge}
               </span>
-              <span style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: 12,
-                color: 'rgba(255, 255, 255, 0.4)',
-              }}>
-                Stage {activeStage.num} / 05
-              </span>
+              
+              {/* Step counter & Navigation controls */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <span style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: 12,
+                  color: 'rgba(255, 255, 255, 0.4)',
+                }}>
+                  Stage {activeStage.num} / 05
+                </span>
+                <div style={{ display: 'flex', gap: 4 }}>
+                  <button
+                    type="button"
+                    onClick={() => setActiveStageIdx((prev) => Math.max(0, prev - 1))}
+                    disabled={activeStageIdx === 0}
+                    style={{
+                      padding: '3px 8px',
+                      background: 'rgba(255, 255, 255, 0.08)',
+                      border: '1px solid rgba(255, 255, 255, 0.15)',
+                      borderRadius: 4,
+                      color: activeStageIdx === 0 ? 'rgba(255, 255, 255, 0.2)' : '#FFF',
+                      cursor: activeStageIdx === 0 ? 'not-allowed' : 'pointer',
+                      fontSize: 12,
+                      touchAction: 'manipulation',
+                    }}
+                  >
+                    ←
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setActiveStageIdx((prev) => Math.min(STAGES.length - 1, prev + 1))}
+                    disabled={activeStageIdx === STAGES.length - 1}
+                    style={{
+                      padding: '3px 8px',
+                      background: 'rgba(255, 255, 255, 0.08)',
+                      border: '1px solid rgba(255, 255, 255, 0.15)',
+                      borderRadius: 4,
+                      color: activeStageIdx === STAGES.length - 1 ? 'rgba(255, 255, 255, 0.2)' : '#FFF',
+                      cursor: activeStageIdx === STAGES.length - 1 ? 'not-allowed' : 'pointer',
+                      fontSize: 12,
+                      touchAction: 'manipulation',
+                    }}
+                  >
+                    →
+                  </button>
+                </div>
+              </div>
             </div>
 
             <h3 style={{
