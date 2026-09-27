@@ -17,21 +17,20 @@ export default function ProblemAttackSurface() {
             <h2 className="t-headline" style={{ color: 'var(--text-primary)', marginBottom: 20 }}>
               Traditional verification<br />isn't enough.
             </h2>
-            <p className="t-body-lg" style={{ color: 'var(--text-secondary)', marginBottom: 24, lineHeight: 1.65 }}>
-              Standard public-key cryptographic signatures authenticate message integrity using computational hardness assumptions.
-              They are blind to physical channel disturbances, unable to detect eavesdropping during transmission, and susceptible to state replay without synchronized ledger locks.
+            <p className="t-body-lg" style={{ color: 'var(--text-secondary)', marginBottom: 20, lineHeight: 1.5, fontSize: 'clamp(14px, 2.5vw, 16px)' }}>
+              Classical signatures verify math, not the physical channel. They cannot detect real-time eavesdropping or quantum tampering.
             </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
-                <span style={{ color: 'var(--danger)', fontWeight: 700, fontSize: 16, flexShrink: 0 }}>✕</span>
-                <span style={{ fontSize: 14, color: 'var(--text-secondary)' }}>
-                  <strong>Zero Physical Sensitivity:</strong> Mathematical signatures cannot detect quantum measurement collapse or MITM intercept-resend.
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
+                <span style={{ color: 'var(--danger)', fontWeight: 700, fontSize: 15, flexShrink: 0 }}>✕</span>
+                <span style={{ fontSize: 'clamp(12px, 2.2vw, 13.5px)', color: 'var(--text-secondary)', lineHeight: 1.4 }}>
+                  <strong>Zero Channel Awareness:</strong> Blind to MITM intercept-resend and physical eavesdropping.
                 </span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
-                <span style={{ color: 'var(--danger)', fontWeight: 700, fontSize: 16, flexShrink: 0 }}>✕</span>
-                <span style={{ fontSize: 14, color: 'var(--text-secondary)' }}>
-                  <strong>Replay Vulnerability:</strong> Captured valid packets can be re-injected if nonces lack strict lifecycle settlement constraints.
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
+                <span style={{ color: 'var(--danger)', fontWeight: 700, fontSize: 15, flexShrink: 0 }}>✕</span>
+                <span style={{ fontSize: 'clamp(12px, 2.2vw, 13.5px)', color: 'var(--text-secondary)', lineHeight: 1.4 }}>
+                  <strong>Replay Exploits:</strong> Valid packets can be re-injected without atomic ledger locks.
                 </span>
               </div>
             </div>
